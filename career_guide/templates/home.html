@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron">
+          
+  <div class="col-sm-8 mx-auto">
+        <h1>Welcome To Career Guide</h1>
+        {% if current_user.is_authenticated %}
+        <p>
+          have a look at our services:
+          great choice {{ current_user.username }}
+          you have selected {{ current_user.ambition }} as your field of choice
+          bellow you can see the exams or other options related to it:
+          <a class="btn btn-primary" href="{{url_for('carer')}}" role="button">Career-finder &raquo;</a>
+          <!-- link here -->
+        </p>
+        {% else %}
+        <p>
+          hallo:
+        </p>
+        <p>please sign in to enjoy our services: </p>
+        <p>
+          <a class="btn btn-primary" href="{{url_for('sign_in')}}" role="button">Sign In &raquo;</a>
+        </p>
+        <p>
+          or if don't have account please register by filling in required details:
+        </p>
+        <p>
+          <a class="btn btn-primary" href="{{url_for('register')}}" role="button">Register &raquo;</a>
+        </p>
+        {% endif %}
+
+  </div>
+</div>     
+  {% endblock content%}
+
+  

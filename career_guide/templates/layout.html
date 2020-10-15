@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>CAREER GUIDE</title>
+
+   
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+<link href="../static/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    
+    <link href="{{ url_for('static', filename='navbar.css') }}" rel="stylesheet">
+    
+  </head>
+  <body >
+      
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-4">
+        <a class="navbar-brand" href="#">Career Guide</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            {% if current_user.is_authenticated %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('account')}}">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('register')}}">edit</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('sign_in')}}">sign in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('register')}}">register</a>
+            </li>
+            
+            {% endif %}
+            {% if current_user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="{{url_for('logout')}}">logout</a>
+                <a class="dropdown-item" href="{{url_for('carer')}}">exams</a>
+                <a class="dropdown-item" href="{{url_for('delacc')}}">delete account</a>
+                
+              </div>
+            </li>
+            {% endif %}
+          </ul>
+          
+        </div>
+      </nav>
+   
+     
+  
+  
+
+      
+      
+  <main role="main">
+    <div class="container">
+    
+            
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          
+        
+        
+        {% block content %}{% endblock content %}
+    </div>      
+  </main>
+
+  
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../static/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../static/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

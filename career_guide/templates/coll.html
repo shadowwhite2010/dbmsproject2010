@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+
+<div class="card">
+    <div class="card-header">
+        {{ vl }}
+    </div>
+    <div class="card-body">
+        <div class="table table-hover">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">College Name</th>
+                        
+                        
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                {% for cl in colle %}
+                    {% if vl == cl.coursename %}
+                        <tr>
+                            <th scope="row">{{ cl.collegename }}</th>
+                            
+                            
+                            
+                        </tr>
+                        
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content%}   

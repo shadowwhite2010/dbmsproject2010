@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+ {% block content %}
+
+ <div class="jumbotron">
+          
+  <div class="col-sm-8 mx-auto">
+    <div class="text-center">
+        <form method="POST" action="" enctype="multipart/form-data">
+          
+          {% if current_user.is_authenticated %}
+          <blockquote class="blockquote text-center">
+            <h1 class="mb-0">Edit Your Details</h1>
+            
+          </blockquote>
+            
+              <div class="media">
+                <!-- <img class="rounded-circle account-img" src="{{ image_file }}"> -->
+                <img class="rounded mx-auto d-block" src="{{ proimg }}" width="200" height="200">
+              </div>
+            
+                <h3> 
+                  Username = {{ current_user.username }}
+                </h3>
+          {% else %}
+          <blockquote class="blockquote text-center">
+            <h1 class="mb-0">Please Register</h1>
+            
+          </blockquote>
+            <div class="form-group row">
+              <label for="inputEmail" class="col-sm-2 col-form-label">Username</label>
+              <div class="col-sm-10">
+                <input type="text" name="username" id="inputEmail" class="form-control" placeholder="User-Name" required autofocus>
+              </div>
+            </div>  
+          {% endif %}
+          
+
+            
+            <div class="form-group row">
+              <label for="DOB" class="col-sm-2 col-form-label">Date Of Birth</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="date" name="dob" value="{{ current_user.dob }}" id="DOB">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="user_gender" class="col-sm-2 col-form-label">Gender</label>
+              <div class="col-sm-10">
+              <select class="form-control" name="gender" value="{{ current_user.gender }}" id="user_gender">
+                <option>male</option>
+                <option>female</option>
+               
+              </select>
+            </div> 
+            </div> 
+
+            <div class="form-group row">
+              <label for="user_ambition" class="col-sm-2 col-form-label">Ambition</label>
+              <div class="col-sm-10">
+              <select class="form-control" name="ambition" value="{{ current_user.ambition }}" id="user_ambition">
+                <option>engineering</option>
+                <option>medical</option>
+                <option>armed forces</option>
+              </select>
+            </div>
+            </div>  
+              
+
+            <div class="form-group row">
+              <label for="user_Qualification" class="col-sm-2 col-form-label">Qualification</label>
+              <div class="col-sm-10">
+              <select class="form-control" name="qualification" value="{{ current_user.qualification }}" id="user_Qualification">
+                <option>10</option>
+                <option>12</option>
+                <option>Higher Studies</option>
+                
+              </select>
+            </div>
+            </div>
+            
+
+            
+            {% if current_user.is_authenticated %}
+            
+              
+            
+              <button type="submit" class="btn btn-primary">edit above changes</button>
+            {% else %}
+            <div class="form-group ">
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+            </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            {% endif %}
+        </form>
+    </div>
+  </div>
+</div>
+        
+     
+  {% endblock content%}

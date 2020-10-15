@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">{{ current_user.ambition }}</h1>
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">{{ user.quote }}</p>
+      <footer class="blockquote-footer">{{ user.quter }} </footer>
+    </blockquote>
+
+  </div>
+</section>
+<!-- add jinja template if else statement and for loop here
+  <p class="text-uppercase">Uppercased text.</p>
+we can ieterate through the exam to find the right exam for student using if -->
+<div class="card">
+    <div class="card-header">
+      Exam
+    </div>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <div class="form-group">
+            <select class="form-control" name="exa" id="exampleFormControlSelect1">
+                <option>Nothing Selected</option>
+                {% for ex in examm %}
+                    {% if current_user.ambition == ex.fieldname %}
+                        {% if current_user.qualification == ex.after %}
+                            <option>{{ ex.examname }}</option>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</div>
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+    <div class="table table-hover">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Exam</th>
+                    <th scope="col">Exam-date</th>
+                    <th scope="col">Registration-date</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">No-Of-Attempts</th>
+                    <th scope="col">Reference</th>
+                    <th scope="col">Official-Site</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            {% for ex in examm %}
+                {% if current_user.ambition == ex.fieldname %}
+                    {% if current_user.qualification == ex.after %}
+                        <tr>
+                            <th scope="row">{{ ex.examname }}</th>
+                            <td>{{ ex.examname }}</td>
+                            <td>{{ ex.examdate }}</td>
+                            <td>{{ ex.regidate }}</td>
+                            <td>{{ ex.country }}</td>
+                            <td>{{ ex.noattempts }}</td>
+                            <td><a href="{{ ex.reference }}" class="text-decoration-none">reference</a></td>
+                            <td><a href="{{ ex.offisite }}" class="text-decoration-none">ofiicial site</a></td>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{% endblock content%}

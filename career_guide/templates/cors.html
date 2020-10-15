@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="card">
+    <div class="card-header">
+      Course
+    </div>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <div class="form-group">
+            <select class="form-control" name="cr" id="exampleFormControlSelect1">
+                <option>Nothing Selected</option>
+                {% for cor in cours %}
+                    {% if val == cor.examname %}
+                        
+                        <option>{{ cor.coursename }}</option>
+                        
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</div>
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+    <div class="table table-hover">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Course</th>
+                    
+                    <th scope="col">Reference</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+            {% for cor in cours %}
+                {% if val == cor.examname %}
+                    <tr>
+                        <th scope="row">{{ cor.coursename }}</th>
+                        
+                        <td><a href="{{ cor.reference }}" class="text-decoration-none">ofiicial site</a></td>
+                        
+                    </tr>
+                    
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{% endblock content%}

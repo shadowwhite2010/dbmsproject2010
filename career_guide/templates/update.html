@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block content %}
+
+     <!-- <input type="number" id="quantity" name="quantity" > -->
+<div class="jumbotron">   
+
+    <form method="POST" action="" enctype="multipart/form-data">
+        <div class="form-group row">
+            <label for="examname" class="col-sm-2 col-form-label">examname</label>
+            <div class="col-sm-10">
+              <input type="text" name="examname"  class="form-control" id="examname">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="offisite" class="col-sm-2 col-form-label">offisite</label>
+            <div class="col-sm-10">
+              <input type="text" name="offisite"  class="form-control" id="offisite">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="reference" class="col-sm-2 col-form-label">reference</label>
+            <div class="col-sm-10">
+              <input type="text" name="reference"  class="form-control" id="reference">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="examdate" class="col-2 col-form-label">examdate</label>
+            <div class="col-10">
+              <input type="date" name="examdate"  class="form-control" id="examdate">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="regidate" class="col-sm-2 col-form-label">regidate</label>
+            <div class="col-sm-10">
+              <input type="date" name="regidate"  class="form-control" id="regidate">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="country" class="col-sm-2 col-form-label">country</label>
+            <div class="col-sm-10">
+              <input type="text" name="country"  class="form-control" id="country">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="agelimit" class="col-sm-2 col-form-label">agelimit</label>
+            <div class="col-sm-10">
+              <input type="text" name="agelimit"  class="form-control" id="agelimit">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="noattempts" class="col-sm-2 col-form-label">noattempts</label>
+            <div class="col-sm-10">
+              <input type="number" name="noattempts"  class="form-control" id="noattempts">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="fieldname" class="col-sm-2 col-form-label">fieldname</label>
+            <div class="col-sm-10">
+              <input type="text" name="fieldname"  class="form-control" id="fieldname">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="after" class="col-sm-2 col-form-label">after</label>
+            <div class="col-sm-10">
+              <input type="text" name="after"  class="form-control" id="after">
+            </div>
+        </div>
+        
+
+
+
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+  {% endblock content%}
+
+  

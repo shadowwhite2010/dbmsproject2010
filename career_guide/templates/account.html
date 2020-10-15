@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="d-flex align-items-center p-3 mb-2  bg-secondary text-white">
+        
+            <img class="mr-3" src= "{{ proimg }}" alt="" width="48" height="48">
+            
+                <h4 class="mb-0 text-white lh-100">{{ current_user.username }}</h4>
+              
+        
+    </div>
+    <!-- <div class="card">
+        <div class="card-body">
+          This is some text within a card body.
+        </div>
+      </div>
+ 
+    <h1><span class="badge badge-info">your details</span></h1>
+    <h3>Example heading <span class="badge badge-secondary">New</span></h3>
+    <span class="badge badge-dark">Dark</span>
+    <h3>
+        Example heading <span class="badge badge-secondary">New</span>
+        username = {{ current_user.username }}
+        dob = {{ current_user.dob }}
+        ambition = {{ current_user.ambition }}
+        username = {{ current_user.qualification }}
+        username = {{ current_user.username }}
+        <h3>
+  Fancy display heading
+  <small class="text-muted">With faded secondary text</small>
+</h3>
+    </h3> -->
+    <div class="card">
+        <div class="card-body">
+            <h1><span class="badge badge-info">your details</span></h1>
+          
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h3>Date of birth: <small class="text-muted"> {{ current_user.dob }}</h3></li>
+            <li class="list-group-item"><h3>your ambition: <small class="text-muted">{{ current_user.ambition }}</small></h3></li>
+            <li class="list-group-item"><h3>Qualification: <small class="text-muted">{{ current_user.qualification }}</small></h3></li>
+            <li class="list-group-item"><h3>Gender: <small class="text-muted">{{ current_user.gender }}</small></h3></li>
+            
+          </ul>
+    </div>
+    
+
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">you can choose your profile pic</h5>
+            <form method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Here you can change your profile pic:</label>
+                    <input type="file" name="proimg" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
+            </form>
+        </div>
+    </div>    
+</div>   
+  {% endblock content%}
+
+  
