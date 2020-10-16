@@ -4,33 +4,75 @@
           
   <div class="col-sm-8 mx-auto">
         <h1>Welcome To Career Guide</h1>
+        <br> 
         {% if current_user.is_authenticated %}
+        <br>
+
+        
+
         <p>
-          have a look at our services:
-          great choice {{ current_user.username }}
-          you have selected {{ current_user.ambition }} as your field of choice
-          bellow you can see the exams or other options related to it:
+          
+          Great Choice <strong>{{ current_user.username }}</strong>
+          You Have Selected <strong> {{ current_user.ambition }} </strong> As Your Field Of Choice
+          Bellow You Can See The Exams Or Other Options Related To It:
           <a class="btn btn-primary" href="{{url_for('carer')}}" role="button">Career-finder &raquo;</a>
-          <!-- link here -->
+          
         </p>
+        <div class="card-group">
+  
+          <div class="card" style="width: 18rem;">
+            <img src="../static/brand/eng.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Engineering</h5>
+              <p class="card-text">Given Link Will Take You To The Engineering Reference Page.</p>
+              <a href="https://www.engineering.com/" class="btn btn-primary">Reference</a>
+            </div>
+          </div>
+        
+        
+          <div class="card" style="width: 18rem;">
+            <img src="../static/brand/med.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Medical</h5>
+              <p class="card-text">Given Link Will Take You To The Medical Reference Page.</p>
+              <a href="https://www.collegedekho.com/careers/doctor" class="btn btn-primary">Reference</a>
+            </div>
+          </div>
+        
+        
+          <div class="card" style="width: 18rem;">
+            <img src="../static/brand/arme.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Armed Forces</h5>
+              <p class="card-text">Given Link Will Take You To The Armed Forces Reference Page.</p>
+              <a href="https://www.ssbcrack.com/" class="btn btn-primary">Reference</a>
+            </div>
+          </div>
+        
+        </div>
+
+
         {% else %}
-        <p>
-          hallo:
-        </p>
-        <p>please sign in to enjoy our services: </p>
+        
+        <h4 class="font-italic">please sign in to enjoy our services: </h4>
         <p>
           <a class="btn btn-primary" href="{{url_for('sign_in')}}" role="button">Sign In &raquo;</a>
         </p>
-        <p>
+        <h4 class="font-italic">
           or if don't have account please register by filling in required details:
-        </p>
+        </h4>
         <p>
           <a class="btn btn-primary" href="{{url_for('register')}}" role="button">Register &raquo;</a>
         </p>
         {% endif %}
 
   </div>
+  <br>
+  <br>
+
 </div>     
+
+
   {% endblock content%}
 
   
